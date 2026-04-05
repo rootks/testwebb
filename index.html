@@ -26,10 +26,8 @@
         }
         
         #aurora-background {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            opacity: 0.6;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; opacity: 0.6;
             background: radial-gradient(at 20% 20%, hsla(333,70%,55%,.4) 0px, transparent 50%), 
                         radial-gradient(at 80% 20%, hsla(282, 82%, 54%, .3) 0px, transparent 50%), 
                         radial-gradient(at 20% 80%, hsla(210, 89%, 60%, .3) 0px, transparent 50%),
@@ -43,36 +41,14 @@
             100% { transform: rotate(360deg) scale(1.2); }
         }
 
-        #app {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            z-index: 2;
-        }
-
-        #step-container {
-            width: 95%;
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            height: 100%;
-        }
+        #app { position: relative; height: 100vh; width: 100%; z-index: 2; }
 
         .step {
-            position: absolute;
-            top: 8%; 
-            left: 50%;
-            width: 100%;
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transform: translateX(-50%) scale(0.9);
-            pointer-events: none;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-            border-radius: 2rem;
-            padding: 2.5rem;
+            position: absolute; top: 8%; left: 50%; width: 95%; max-width: 500px;
+            background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1); opacity: 0;
+            transform: translateX(-50%) scale(0.9); pointer-events: none;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6); border-radius: 2rem; padding: 2.5rem;
         }
         
         .anim-child { opacity: 0; }
@@ -91,26 +67,21 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* Portrait Invitation Styling */
         #step6 {
-            max-width: 400px; /* Force Portrait aspect ratio */
-            height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 2px solid var(--gold);
-            background: linear-gradient(135deg, rgba(30,20,20,0.8) 0%, rgba(10,10,10,0.9) 100%);
-            box-shadow: 0 0 50px rgba(251, 191, 36, 0.2);
+            max-width: 400px; height: 600px; display: flex; flex-direction: column;
+            justify-content: center; border: 2px solid var(--gold);
+            background: linear-gradient(135deg, rgba(30,20,20,0.9) 0%, rgba(10,10,10,1) 100%);
         }
 
-        .gold-glow {
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        /* Loading Spinner for Photos */
+        #photo-loader {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid var(--secondary-color);
+            border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite;
         }
+        @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
-        @media (max-width: 768px) {
-            .step { top: 5%; padding: 1.5rem; }
-            #step6 { height: 550px; }
-        }
+        @media (max-width: 768px) { .step { top: 5%; } #step6 { height: 550px; } }
     </style>
 </head>
 <body>
@@ -122,27 +93,27 @@
             <div id="step1" class="step text-center">
                 <div class="anim-child text-8xl mb-6">❤️</div>
                 <h1 class="anim-child text-5xl font-bold text-gradient mb-6">Hey Handsome,</h1>
-                <p class="anim-child text-gray-300 mb-10 text-xl">Ready for a surprise?</p>
+                <p class="anim-child text-gray-300 mb-10 text-xl">Ready for your surprise?</p>
                 <button onclick="showStep(2)" class="anim-child btn text-white py-4 px-12 rounded-full text-lg">Let's Begin</button>
             </div>
 
             <div id="step2" class="step text-center">
                 <div class="anim-child text-7xl mb-6">🎂</div>
                 <h2 class="anim-child text-5xl font-bold text-gradient mb-6">Happy Birthday!</h2>
-                <p class="anim-child text-gray-300 mb-10 text-lg leading-relaxed">To the one who makes every day better just by being in it.</p>
-                <button onclick="showStep(3)" class="anim-child btn text-white py-4 px-12 rounded-full">Continue...</button>
+                <p class="anim-child text-gray-300 mb-10 text-lg">To the most special person in my life.</p>
+                <button onclick="showStep(3)" class="anim-child btn text-white py-4 px-12 rounded-full">Continue</button>
             </div>
 
             <div id="step3" class="step text-center">
                 <h2 class="anim-child text-4xl font-bold text-gradient mb-8">What I Adore</h2>
                 <div class="space-y-6 mb-10">
-                    <div class="anim-child bg-white/5 p-6 rounded-2xl border border-white/10 scale-105">
+                    <div class="anim-child bg-white/5 p-6 rounded-2xl border border-white/10">
                         <h3 class="text-pink-300 text-xl font-bold">✨ Your Heart</h3>
                         <p class="text-gray-400 mt-2">Pure, kind, and incredibly rare.</p>
                     </div>
                     <div class="anim-child bg-white/5 p-6 rounded-2xl border border-white/10">
                         <h3 class="text-pink-300 text-xl font-bold">😊 Your Smile</h3>
-                        <p class="text-gray-400 mt-2">My favorite view in the whole world.</p>
+                        <p class="text-gray-400 mt-2">The light of my life.</p>
                     </div>
                 </div>
                 <button onclick="showStep(4)" class="anim-child btn text-white py-4 px-12 rounded-full">Next</button>
@@ -150,9 +121,10 @@
 
             <div id="step4" class="step text-center">
                 <h2 class="anim-child text-3xl font-bold text-gradient mb-6">Our Memories</h2>
-                <div id="polaroid" class="anim-child mb-8 flex justify-center">
+                <div id="polaroid" class="anim-child mb-8 flex justify-center relative">
+                    <div id="photo-loader"></div>
                     <div class="bg-white p-4 pb-12 rounded-lg shadow-2xl w-full max-w-sm transform -rotate-1">
-                        <img id="display-photo" src="" alt="Memory" class="w-full h-80 object-cover rounded-sm">
+                        <img id="display-photo" src="" alt="Memory" class="w-full h-80 object-cover rounded-sm opacity-0">
                         <p id="photo-counter" class="text-center text-gray-500 font-bold mt-4"></p>
                     </div>
                 </div>
@@ -171,31 +143,25 @@
             </div>
 
             <div id="step6" class="step text-center">
-                <div class="anim-child mb-6">
-                    <span class="text-gold gold-glow text-5xl">✨</span>
-                </div>
                 <h1 class="anim-child text-4xl font-serif text-white mb-2">Happy Birthday,</h1>
                 <h1 class="anim-child text-4xl font-serif text-pink-400 mb-8 font-bold italic">my LOVE</h1>
                 
                 <div class="anim-child space-y-8">
                     <div>
-                        <p class="text-gold uppercase tracking-[0.3em] text-xs mb-3 font-bold">You are invited to</p>
+                        <p class="text-amber-400 uppercase tracking-[0.3em] text-xs mb-3 font-bold">You are invited to</p>
                         <h2 class="text-3xl font-serif text-white italic">High Tea</h2>
                     </div>
-                    
-                    <div class="anim-child w-24 h-px bg-gold/40 mx-auto"></div>
-
+                    <div class="anim-child w-24 h-px bg-amber-400/40 mx-auto"></div>
                     <div class="anim-child space-y-6">
-                        <div class="flex flex-col items-center gap-1">
+                        <div class="flex flex-col">
                             <span class="text-gray-400 text-xs uppercase tracking-widest">When</span>
                             <span class="text-xl text-white font-bold">May 6, 2026</span>
                         </div>
-                        <div class="flex flex-col items-center gap-1">
+                        <div class="flex flex-col">
                             <span class="text-gray-400 text-xs uppercase tracking-widest">Where</span>
                             <span class="text-xl text-white font-bold">Jetwing Colombo 7</span>
                         </div>
                     </div>
-
                     <div class="anim-child pt-6">
                         <p class="text-pink-300 font-serif text-lg italic">"Let's make this day unforgettable."</p>
                     </div>
@@ -211,12 +177,37 @@
             "https://i.postimg.cc/0yfJMPSL/IMG-20260403-WA0031.jpg",
             "https://i.postimg.cc/vBm7HDSK/IMG-20260403-WA0025.jpg"
         ];
-        
+
+        // --- PRELOAD LOGIC ---
+        const preloadedImages = [];
+        let loadedCount = 0;
+
+        function preloadImages() {
+            myPhotos.forEach((src, index) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => {
+                    preloadedImages[index] = img;
+                    loadedCount++;
+                    if (loadedCount === myPhotos.length) {
+                        document.getElementById('photo-loader').style.display = 'none';
+                        document.getElementById('display-photo').style.opacity = '1';
+                        updateDisplay(true); // Initial show
+                    }
+                };
+            });
+        }
+
         let photoIndex = 0;
         const photoEl = document.getElementById('display-photo');
         const counterEl = document.getElementById('photo-counter');
 
-        function updateDisplay() {
+        function updateDisplay(immediate = false) {
+            if (immediate) {
+                photoEl.src = myPhotos[photoIndex];
+                counterEl.innerText = `${photoIndex + 1} / ${myPhotos.length}`;
+                return;
+            }
             gsap.to(photoEl, { opacity: 0, scale: 0.95, duration: 0.2, onComplete: () => {
                 photoEl.src = myPhotos[photoIndex];
                 counterEl.innerText = `${photoIndex + 1} / ${myPhotos.length}`;
@@ -229,41 +220,21 @@
 
         function showStep(n) {
             const steps = document.querySelectorAll('.step');
-            steps.forEach(s => {
-                if(s.style.opacity == "1") {
-                    gsap.to(s, { opacity: 0, scale: 0.8, y: -100, duration: 0.5, pointerEvents: 'none' });
-                }
-            });
+            steps.forEach(s => { if(s.style.opacity == "1") gsap.to(s, { opacity: 0, scale: 0.8, y: -100, duration: 0.5, pointerEvents: 'none' }); });
 
             const activeStep = document.getElementById(`step${n}`);
             const tl = gsap.timeline();
-            
             tl.to(activeStep, { opacity: 1, scale: 1, y: 0, duration: 0.6, pointerEvents: 'all', delay: 0.3 })
-              .fromTo(activeStep.querySelectorAll('.anim-child'), 
-                { opacity: 0, y: 30 }, 
-                { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }, "-=0.3");
+              .fromTo(activeStep.querySelectorAll('.anim-child'), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }, "-=0.3");
         }
 
         document.getElementById('celebrate-btn').onclick = () => {
-            // Intense Confetti
-            const colors = ['#ec4899', '#f43f5e', '#fbbf24', '#ffffff'];
-            confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 }, colors: colors });
-            
-            // Camera Shake Effect
+            confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 }, colors: ['#ec4899', '#f43f5e', '#fbbf24', '#ffffff'] });
             gsap.to("#app", { x: 10, duration: 0.05, repeat: 10, yoyo: true });
-            
-            // Zoom hearts
-            hearts.forEach(h => {
-                gsap.to(h.position, { z: 50, duration: 1, ease: "power2.in" });
-            });
-
-            // Reduced delay for the final page
-            setTimeout(() => {
-                showStep(6);
-            }, 1200); 
+            setTimeout(() => { showStep(6); }, 800); // Shorter delay
         };
 
-        // --- THREE.JS HEART SCENE ---
+        // --- THREE.JS ---
         let scene, camera, renderer, hearts = [];
         function initThreeJS() {
             scene = new THREE.Scene();
@@ -308,8 +279,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         };
 
-        photoEl.src = myPhotos[0];
-        counterEl.innerText = `1 / ${myPhotos.length}`;
+        preloadImages(); // Start preloading immediately
         initThreeJS();
         showStep(1);
     </script>
