@@ -73,7 +73,6 @@
             background: linear-gradient(135deg, rgba(30,20,20,0.9) 0%, rgba(10,10,10,1) 100%);
         }
 
-        /* Loading Spinner for Photos */
         #photo-loader {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid var(--secondary-color);
@@ -92,7 +91,7 @@
         <main id="step-container">
             <div id="step1" class="step text-center">
                 <div class="anim-child text-8xl mb-6">❤️</div>
-                <h1 class="anim-child text-5xl font-bold text-gradient mb-6">Hey andsome,</h1>
+                <h1 class="anim-child text-5xl font-bold text-gradient mb-6">Hey Handsome,</h1>
                 <p class="anim-child text-gray-300 mb-10 text-xl">Ready for your surprise?</p>
                 <button onclick="showStep(2)" class="anim-child btn text-white py-4 px-12 rounded-full text-lg">Let's Begin</button>
             </div>
@@ -105,22 +104,26 @@
             </div>
 
             <div id="step3" class="step text-center">
-                <h2 class="anim-child text-4xl font-bold text-gradient mb-8">What I Adore</h2>
-                <div class="space-y-6 mb-10">
-                    <div class="anim-child bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h3 class="text-pink-300 text-xl font-bold">✨ Your Heart</h3>
-                        <p class="text-gray-400 mt-2">Pure, kind, and incredibly rare.</p>
-                    </div>
-                    <div class="anim-child bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h3 class="text-pink-300 text-xl font-bold">😊 Your Smile</h3>
-                        <p class="text-gray-400 mt-2">The light of my life.</p>
-                    </div>
+                <div class="space-y-8 mb-10">
+                    <p class="anim-child text-xl text-pink-300 italic font-medium leading-relaxed">
+                        You are the best unplanned thing happened in my life babe ❤️
+                    </p>
+                    <div class="anim-child w-16 h-px bg-white/20 mx-auto"></div>
+                    <p class="anim-child text-gray-200 text-lg">
+                        Stay focused on your goals babe, I'm not going anywhere.
+                    </p>
+                    <p class="anim-child text-gray-300 text-base leading-relaxed">
+                        I'm right behind you, cheering you on & praying for your success everyday.
+                    </p>
+                    <p class="anim-child text-2xl font-bold text-gradient pt-4">
+                        I love you sooo much my little boy 💋❤️
+                    </p>
                 </div>
                 <button onclick="showStep(4)" class="anim-child btn text-white py-4 px-12 rounded-full">Next</button>
             </div>
 
             <div id="step4" class="step text-center">
-                <h2 class="anim-child text-3xl font-bold text-gradient mb-6">My FB pic of ours</h2>
+                <h2 class="anim-child text-3xl font-bold text-gradient mb-6">Our Memories</h2>
                 <div id="polaroid" class="anim-child mb-8 flex justify-center relative">
                     <div id="photo-loader"></div>
                     <div class="bg-white p-4 pb-12 rounded-lg shadow-2xl w-full max-w-sm transform -rotate-1">
@@ -178,7 +181,6 @@
             "https://i.postimg.cc/vBm7HDSK/IMG-20260403-WA0025.jpg"
         ];
 
-        // --- PRELOAD LOGIC ---
         const preloadedImages = [];
         let loadedCount = 0;
 
@@ -192,7 +194,7 @@
                     if (loadedCount === myPhotos.length) {
                         document.getElementById('photo-loader').style.display = 'none';
                         document.getElementById('display-photo').style.opacity = '1';
-                        updateDisplay(true); // Initial show
+                        updateDisplay(true);
                     }
                 };
             });
@@ -231,10 +233,9 @@
         document.getElementById('celebrate-btn').onclick = () => {
             confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 }, colors: ['#ec4899', '#f43f5e', '#fbbf24', '#ffffff'] });
             gsap.to("#app", { x: 10, duration: 0.05, repeat: 10, yoyo: true });
-            setTimeout(() => { showStep(6); }, 800); // Shorter delay
+            setTimeout(() => { showStep(6); }, 800);
         };
 
-        // --- THREE.JS ---
         let scene, camera, renderer, hearts = [];
         function initThreeJS() {
             scene = new THREE.Scene();
@@ -279,7 +280,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         };
 
-        preloadImages(); // Start preloading immediately
+        preloadImages();
         initThreeJS();
         showStep(1);
     </script>
